@@ -29,7 +29,7 @@ Module.register("MMM-SCLunchMenus", {
   },
 
   getScripts () {
-	  return ["moment.js"];
+    return ["moment.js"];
   },
 
   getTemplate () {
@@ -44,8 +44,7 @@ Module.register("MMM-SCLunchMenus", {
         tomorrow = today === 6 ? 0 : today + 1,
         days = this.config.weeks[week];
 
-    console.log("today: ", today, "tomorrow: ", tomorrow);
-	  return {
+    return {
       menuToday: days[today],
       menuTomorrow: days[tomorrow],
     };
