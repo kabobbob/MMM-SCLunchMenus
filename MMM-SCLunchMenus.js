@@ -24,6 +24,26 @@ Module.register("MMM-SCLunchMenus", {
     ],
   },
 
+  start () {
+    const msTillTomorrow = () => {
+      let now       = moment(),
+          tomorrow  = moment().add(1, 'd').startOf('day'),
+          remaining = tomorrow.diff(now);
+
+      return remaining;
+    };
+
+    const setRefresh = () => {
+      let self = this;
+
+      setInterval(() => {
+        self.updateDom();
+      }, msTillTomorrow())
+    };
+
+    setTimeout(setRefresh, msTillTomorrow());
+  },
+
   getStyles () {
     return ["template.css"];
   },
@@ -48,5 +68,5 @@ Module.register("MMM-SCLunchMenus", {
       menuToday: days[today],
       menuTomorrow: days[tomorrow],
     };
-  }
+  },
 });
