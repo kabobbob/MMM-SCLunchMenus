@@ -24,19 +24,19 @@ Module.register("MMM-SCLunchMenus", {
     ],
   },
 
-	getStyles () {
-		return ["template.css"];
-	},
+  getStyles () {
+    return ["template.css"];
+  },
 
   getScripts () {
-		return ["moment.js"];
-	},
+	  return ["moment.js"];
+  },
 
-	getTemplate () {
-		return "template.njk";
-	},
+  getTemplate () {
+    return "template.njk";
+  },
 
-	getTemplateData () {
+  getTemplateData () {
     let now      = moment(),
         weekNum  = now.format('w'),
         week     = weekNum % 2,
@@ -45,9 +45,9 @@ Module.register("MMM-SCLunchMenus", {
         days = this.config.weeks[week];
 
     console.log("today: ", today, "tomorrow: ", tomorrow);
-		return {
+	  return {
       menuToday: days[today],
       menuTomorrow: days[tomorrow],
     };
-	}
+  }
 });
