@@ -5,3 +5,7 @@
 .lunch-menus .header {
   font-weight: bold;
 }
+
+.lunch-menus td {
+  width: 50%;
+}

@@ -4,44 +4,31 @@ Module.register("MMM-SCLunchMenus", {
   defaults: {
     weeks: [
       [
-        "",
+        "-",
         "Mini Corndogs, Cheeze Pizza, Sweet Potato Lattice Fresh Broccoli w/Ranch",
         "Chicken Taco, Chicken Fajita, Mango Wango Juice, Sweet Buttered Corn, Nacho Chips or Flour Tortilla",
         "Popcorn Chicken, Pulled Pork BBQ, Baked Potatoes, Baked Beans, Macaroni & Cheese",
         "Salisbury Steak & Gravy, Chicken Drumstick, Green Beans, Mashed Potatoes, Ma's Rolls",
         "Cheeseburger, Turkey Frank, Crinkle Cut Fries, Steamed Carrots",
-        "",
+        "-",
       ],
       [
-        "",
+        "-",
         "Crispy Chicken Tenders, Breaded Beef Fingers, Mashed Potatoes, Pinto Beans, Garlic Bread Stick",
         "Rotini & Italian Meat Sauce, Breaded Chicken Thigh, Shaker Salads, Steamed Broccoli, Garlic Bread Stick",
         "Popcorn Chicken, Cheeseburger Mac, Pulled Pork Nachos, Scalloped Potatoes, Steamed Peas & Carrots, Ma's Roll",
         "Sausage, Egg & Cheese Biscuit, Big Chicken Biscuit, Tator Bucks, Dragon Juice, Baked Apples",
         "Pepperoni Pizza, Grilled Cheese, Steamed Peas, Fresh Carrots w/Ranch, Garlic Bread Stick",
-        "",
+        "-",
       ],
     ],
   },
 
   start () {
-    const msTillTomorrow = () => {
-      let now       = moment(),
-          tomorrow  = moment().add(1, 'd').startOf('day'),
-          remaining = tomorrow.diff(now);
-
-      return remaining;
-    };
-
-    const setRefresh = () => {
-      let self = this;
-
-      setInterval(() => {
-        self.updateDom();
-      }, msTillTomorrow())
-    };
-
-    setTimeout(setRefresh, msTillTomorrow());
+    const self = this;
+    setInterval(() => {
+      self.updateDom();
+    }, 1000 * 60 * 60);
   },
 
   getStyles () {
